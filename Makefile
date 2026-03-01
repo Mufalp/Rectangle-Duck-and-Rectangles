@@ -2,6 +2,7 @@
 ifeq ($(OS),Windows_NT)
     PLATFORM = WINDOWS
     EXTENSION = .exe
+	INC_DIR =
     # Windows libs (static for portability)
     LIBS = -lraylib -lopengl32 -lgdi32 -lwinmm -mwindows -static -lpthread -lws2_32
     # Check if resource.res exists for the icon (only for your local release)
@@ -11,6 +12,7 @@ else
     UNAME_S := $(shell uname -s)
     ifeq ($(UNAME_S),Linux)
         PLATFORM = LINUX
+        INC_DIR =
         EXTENSION = 
         LIBS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
         RM = rm -f
