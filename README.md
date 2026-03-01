@@ -29,7 +29,7 @@ If you have **MinGW** and **Raylib** configured in your PATH:
 
 ## Just Want to Play?
 If you're not a developer or just want to try the game without building it:
-1. Go to the **[Releases](https://github.com/KULLANICI_ADIN/RectangleDuck/releases)** section.
+1. Go to the **[Releases](https://github.com/Mufalp/Rectangle-Duck-and-Rectangles/releases/tag/tag1)** section.
 2. Download the latest `.zip` file.
 3. Extract and run the executable.
 
