@@ -15,10 +15,12 @@ else
         LIBS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
         RM = rm -f
     endif
-    ifeq ($(UNAME_S),Darwin)
+ifeq ($(UNAME_S),Darwin)
         PLATFORM = MAC
         EXTENSION = 
-        LIBS = -lraylib -framework CoreVideo -framework IOKit -framework Cocoa -framework OpenGL
+        INC_DIR = -I/opt/homebrew/include
+        LIB_DIR = -L/opt/homebrew/lib
+        LIBS = $(LIB_DIR) -lraylib -framework CoreVideo -framework IOKit -framework Cocoa -framework OpenGL
         RM = rm -f
     endif
 endif
@@ -41,7 +43,7 @@ $(TARGET): $(OBJS)
 
 # Compiling source files
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INC_DIR) -c $< -o $@
 
 # Execute the game
 run: all
