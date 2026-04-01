@@ -16,5 +16,6 @@ void RCamFollow(Camera2D& camera, Duck& duck);
 void deathChecker(Duck &duck);
 void deathDraw(Duck &duck);
 
+void slideBackground(BackGround background, Duck& duck);
 
 #endif

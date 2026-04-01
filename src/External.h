@@ -7,6 +7,10 @@ struct anySound{
     Music mainMenuM,raceM,runM;
 };
 
+struct BackGround{
+    Texture2D back, frontbackground, backbackground;
+};
+
 class MusicManager {
     public:
     Music* currentTrack = nullptr;
@@ -19,5 +23,8 @@ class MusicManager {
 
 void loadMyAudio(anySound& s);
 void unloadMyAudio(anySound& s);
+
+void loadMyTexture(BackGround& s);
+void unloadMyTexture(BackGround& s);
 
 #endif 

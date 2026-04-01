@@ -1,34 +1,34 @@
 #include"Objects.h"
 
 
-float Duck::cFaster=0;
+float Duck::cFaster=0, Duck::scrSpeed=BackGroundSpeed;
 
 ClassicE::ClassicE(float sped) {
-    coor = {wwidth+10.0f,275.0f};
     shape = {25.0f,25.0f};
-    color = GRAY;
+    coor = {wwidth+10.0f,floorY-shape.y};
+    color = {64,224,208,255};
     speed = sped;
 }
 
 Accelerator::Accelerator(float sped) {
-    coor = {wwidth+10.0f,275.0f};
     shape = {25.0f,25.0f};
+    coor = {wwidth+10.0f,floorY-shape.y};
     color = LIME;
     speed = 1.0f;
     acc = sped;
 }
 
 Jumper::Jumper(float sped,float sped2) {
-    coor = {wwidth+10.0f,275.0f};
     shape = {25.0f,25.0f};
+    coor = {wwidth+10.0f,floorY-shape.y};
     color = MAGENTA;
     speed = sped;
     jumpf = sped2;
 }
 
 Dasher::Dasher(float sped,float sped2,Duck* player) : target(player) {
-    coor = {wwidth+10.0f,275.0f};
     shape = {25.0f,25.0f};
+    coor = {wwidth+10.0f,floorY-shape.y};
     color = ORANGE;
     speed = sped2;
     jumpRange = sped;
@@ -37,8 +37,8 @@ Dasher::Dasher(float sped,float sped2,Duck* player) : target(player) {
 //Jump Mechanic
 void Duck::Jump(){
     this->coor.y += this->speedf;
-    if(this->coor.y >= 2*wheight/3-this->shape.y){
-        this->coor.y = 2*wheight/3-this->shape.y;
+    if(this->coor.y >= floorY-this->shape.y){
+        this->coor.y = floorY-this->shape.y;
         this->speedf = 0;
     }
     else this->speedf += gravity;
@@ -139,8 +139,8 @@ void Jumper::Come(){
     coor.y+=jump;
     timeAcc += GetFrameTime();
     if(timeAcc >= 6.0f) isActive = false;
-    if(coor.y >= 2*wheight/3-shape.y){
-        coor.y = 2*wheight/3-shape.y;
+    if(coor.y >= floorY-shape.y){
+        coor.y = floorY-shape.y;
         jump = 0;
         isJump=false;
     }
@@ -157,8 +157,8 @@ void Dasher::Come(){
     coor.y+=jump;
     timeAcc += GetFrameTime();
     if(timeAcc >= 6.0f) isActive = false;
-    if(coor.y >= 2*wheight/3-shape.y){
-        coor.y = 2*wheight/3-shape.y;
+    if(coor.y >= floorY-shape.y){
+        coor.y = floorY-shape.y;
         jump = 0;
         isJump=false;
     }

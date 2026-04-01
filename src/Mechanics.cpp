@@ -13,7 +13,7 @@ void enemyCycle(std::vector<std::unique_ptr<Enemy> >& enemy, Duck& duck){
 
         switch(GetRandomValue(1,4)){
             case 1:
-                enemy.push_back(std::make_unique<ClassicE>(4.0f+duck.cFaster/20));
+                enemy.push_back(std::make_unique<ClassicE>(4.0f+duck.cFaster/30));
                 break;
             case 2:
                 enemy.push_back(std::make_unique<Accelerator>(0.075f+duck.cFaster/400));
@@ -23,6 +23,7 @@ void enemyCycle(std::vector<std::unique_ptr<Enemy> >& enemy, Duck& duck){
                 break;
             case 4:
                 enemy.push_back(std::make_unique<Dasher>((float)GetRandomValue(100, 150),2.5f+duck.cFaster/30,&duck));
+                break;
         }
 
         
@@ -40,7 +41,7 @@ void enemyCycle(std::vector<std::unique_ptr<Enemy> >& enemy, Duck& duck){
 }
 
 void Run(std::vector<std::unique_ptr<Enemy> >& enemy, Duck& duck,State &game){
-    DrawRectangle(0,2*wheight/3,wwidth,wheight/50,GREEN);//floor
+    DrawRectangle(0,floorY,wwidth,wheight/5,GRAY);//floor
 
     for(int i = 0; i < (int)enemy.size(); i++){
         if (enemy[i]->isActive){
@@ -130,7 +131,7 @@ void deathChecker(Duck &duck){
 
         if (duck.deathTimer <= 0) {
             duck.isDeath = false;
-            duck.deathTimer = 0; // For safety
+            duck.deathTimer = 0;
 
             duck.score=0;
             duck.coor = SpawnPoint;
@@ -159,6 +160,31 @@ void deathDraw(Duck &duck){
         if (((int)(GetTime() * 20) % 2) == 0) flashColor = BLACK;
         DrawText(duck.deathText.c_str(), centerX + shakeX, centerY + shakeY, fontSize, flashColor);
     }
+}
+
+void slideBackground(BackGround background, Duck& duck){
+    static float start = 0.0f;
+    static float start2 = 0.0f;
+
+    ClearBackground(BLACK);
+    DrawTexture(background.back,0 , 0, WHITE);
+
+    duck.scrSpeed += GetFrameTime()/30.0f;
+    start-=duck.scrSpeed;
+
+    if(start <= -wwidth*2) start = 0.0f;
+
+    duck.scrSpeed += GetFrameTime()/30.0f;
+    start2-=duck.scrSpeed*0.75f;
+
+    if(start2 <= -wwidth*2) start2 = 0.0f;
+
+    DrawTexture(background.backbackground,(int)start2, 0, WHITE);
+    DrawTexture(background.backbackground,(int)start2+wwidth*2, 0, WHITE);
+    DrawTexture(background.frontbackground,(int)start, 0, WHITE);
+    DrawTexture(background.frontbackground,(int)start+wwidth*2, 0, WHITE);
+
+    
 }
 
 

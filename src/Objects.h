@@ -40,7 +40,7 @@ class Duck{
         //Run
         float jumpf=6.5f,speedf,score=0,rscore=0,deathTimer=0;
         bool isJump = false,isGround=true,isScore=true,isDeath=false;
-        static float cFaster;
+        static float cFaster, scrSpeed;
         Vector2 coor = {20.0f,250.0f}, shape = {20.0f,50.0f};
         void Jump();
         void rDuckDraw(bool isConst);

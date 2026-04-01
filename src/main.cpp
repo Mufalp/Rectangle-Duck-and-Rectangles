@@ -36,6 +36,9 @@ int main(){
     preButtonMap(buttons,&GameState,sounds);
     preSliderMap(sliders,duck,&musicMngr.volume);
 
+    BackGround background;
+    loadMyTexture(background);
+
     while(!WindowShouldClose()){
         //repeated calculations
         musicMngr.Update();
@@ -93,6 +96,7 @@ int main(){
 
         switch(GameState){
             case RUN:
+                slideBackground(background,duck);
                 Run(enemy,duck,GameState);
                 break;
             case GAMEOVER:
@@ -135,5 +139,6 @@ int main(){
     }
     unloadMyAudio(sounds);
     CloseAudioDevice();
+    unloadMyTexture(background);
     return 0;
 }

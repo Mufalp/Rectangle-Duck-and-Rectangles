@@ -16,6 +16,18 @@ void unloadMyAudio(anySound& s){
     UnloadMusicStream(s.runM);
 }
 
+void loadMyTexture(BackGround& s){
+    s.back = LoadTexture("assets/texture/back.png");
+    s.frontbackground = LoadTexture("assets/texture/frontbackground.png");
+    s.backbackground = LoadTexture("assets/texture/backbackground.png");
+}
+
+void unloadMyTexture(BackGround& s){
+    UnloadTexture(s.backbackground);
+    UnloadTexture(s.frontbackground);
+    UnloadTexture(s.back);
+}
+
 MusicManager::MusicManager(Music* track){
     currentTrack = track;
     PlayMusicStream(*currentTrack); 

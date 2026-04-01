@@ -39,6 +39,7 @@ void GameOver(Duck &duck,Buton &retry,std::vector<std::unique_ptr<Enemy> >& enem
 
         enemy.clear();
         duck.hp = duck.maxhp;
+        duck.scrSpeed = BackGroundSpeed;
         lastscore = duck.score;
         duck.score=0;
         duck.coor = SpawnPoint;
@@ -188,19 +189,17 @@ void isStateChanged(State& game, MusicManager& mngr, anySound& s, Duck &duck, Ca
 
             duck.hp = duck.maxhp;
             duck.cFaster=0;
+            duck.scrSpeed = BackGroundSpeed;
             enemy.clear();
             
-            //Music ve değerleri sıfırla
         }
         if(game == RACE){
             mngr.Play(&s.raceM);
             last = game;
-            //Music camera duck olduğu yere çekme
         }
         if(game == RUN){
             mngr.Play(&s.runM);
             last = game;
-            //Music
         }
     
     }

@@ -13,9 +13,13 @@ inline constexpr float RaceAcc = 0.35f;
 inline constexpr float CameraSpeed = 0.08f;
 
 inline constexpr Vector2 SpawnPoint = {20.0f,250.0f};
+inline constexpr float floorY = 400.0f;
+inline constexpr Vector2 RunPoint = {20.0f,floorY+50.0f};
 
 inline constexpr int levelnum = 2;
 inline constexpr float targetTimes[] = { 30.0f, 35.0f, 15.0f };
+
+inline constexpr float BackGroundSpeed = 2.0f;
 
 
 
@@ -27,8 +31,6 @@ enum State{
 inline constexpr State StartState = MAINMENU;
 
 /* TO DO:
-makefile all platform
-
 try:
 background?
 add 2 more enemies to run (lagging, fly&shoot)
