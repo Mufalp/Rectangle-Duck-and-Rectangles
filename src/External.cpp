@@ -20,6 +20,9 @@ void loadMyTexture(BackGround& s){
     s.back = LoadTexture("assets/texture/back.png");
     s.frontbackground = LoadTexture("assets/texture/frontbackground.png");
     s.backbackground = LoadTexture("assets/texture/backbackground.png");
+    s.frontraceground = LoadTexture("assets/texture/spacefront.png");
+    s.backraceground = LoadTexture("assets/texture/spaceback.png");
+
 }
 
 void unloadMyTexture(BackGround& s){

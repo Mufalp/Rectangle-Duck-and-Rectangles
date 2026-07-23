@@ -111,13 +111,14 @@ int main(){
                 buttons["howTo"]->Draw();
                 break;
             case RACE:
+                slideBackground2D(background, duck);
                 Race(duck,rBlocks,camera,level);
                 deathDraw(duck);
                 break;
             case RACEMENU:
                 racemenu.Draw();
                 break;
-            case RACEWIN://
+            case RACEWIN:
                 winMenu(duck,*buttons["winToMenu"],level);
                 break;
             case PAUSE:

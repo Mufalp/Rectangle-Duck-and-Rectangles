@@ -117,7 +117,7 @@ namespace texts{
     const char* line1 = "- Train your duck then race for better scores.";
     const char* line2 = "- Higher stats mean duck is better at race.";
     const char* line3 = "- Run speed slider in options to adjust your increased stats.";
-    const char* line4 = "- Press [ESC] to leave. Sorry for just text tutorial.";
+    const char* line4 = "- Press [ESC] to leave and [SPACE] to pause.";
 }
 
 void howtoMenu(){
@@ -130,10 +130,10 @@ void howtoMenu(){
     int startY = 150;
     int lineSpacing = 40;
 
-    DrawText(texts::line1, wwidth/2 - 250, startY, bodySize, LIGHTGRAY);
-    DrawText(texts::line2, wwidth/2 - 250, startY + lineSpacing, bodySize, LIGHTGRAY);
-    DrawText(texts::line3, wwidth/2 - 250, startY + (lineSpacing * 2), bodySize, SKYBLUE);
-    DrawText(texts::line4, wwidth/2 - 250, startY + (lineSpacing * 3), bodySize, ORANGE);
+    DrawText(texts::line1, wwidth/2 - 350, startY, bodySize, LIGHTGRAY);
+    DrawText(texts::line2, wwidth/2 - 350, startY + lineSpacing, bodySize, LIGHTGRAY);
+    DrawText(texts::line3, wwidth/2 - 350, startY + (lineSpacing * 2), bodySize, SKYBLUE);
+    DrawText(texts::line4, wwidth/2 - 350, startY + (lineSpacing * 3), bodySize, ORANGE);
 }
 
 void rMenuCheck(RaceMenu& racemenu){

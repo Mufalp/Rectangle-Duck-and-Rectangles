@@ -186,5 +186,31 @@ void slideBackground(BackGround background, Duck& duck){
 
     
 }
+void slideBackground2D(BackGround background, Duck& duck) {
+    static Vector2 offset = {0.0f, 0.0f};
+    
+    ClearBackground(BLACK);
+
+    
+    DrawTexture(background.backraceground, 0, 0, WHITE);
+
+    float dt = GetFrameTime();
+
+    offset.x -= duck.rSpeed * dt * 6.0f;
+    offset.y -= duck.rFall * dt * 3.0f;
+
+    
+    offset.x = fmodf(offset.x, (float)wwidth);
+    offset.y = fmodf(offset.y, (float)wheight);
+
+    
+    for (int x = -1; x <= 1; x++) {
+        for (int y = -1; y <= 1; y++) {
+            DrawTexture(background.frontraceground, 
+                        (int)offset.x + x * wwidth, 
+                        (int)offset.y + y * wheight, WHITE);
+        }
+    }
+}
 
 

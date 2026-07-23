@@ -17,5 +17,6 @@ void deathChecker(Duck &duck);
 void deathDraw(Duck &duck);
 
 void slideBackground(BackGround background, Duck& duck);
+void slideBackground2D(BackGround background, Duck& duck);
 
 #endif

@@ -30,7 +30,7 @@ endif
 # 2. General Settings
 CXX = g++
 CXXFLAGS = -Wall -std=c++17 -O2
-TARGET = MyGame$(EXTENSION)
+TARGET = DuckGame$(EXTENSION)
 # Assumes source files are in src/ folder
 SRCS = $(wildcard src/*.cpp)
 OBJS = $(SRCS:.cpp=.o)
