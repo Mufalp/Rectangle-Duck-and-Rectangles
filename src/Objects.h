@@ -4,6 +4,7 @@
 #include "raylib.h"
 #include "Common.h"
 #include "External.h"
+#include <sstream>
 #include <iostream>
 #include <memory>
 #include <vector>

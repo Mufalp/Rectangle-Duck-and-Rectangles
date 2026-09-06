@@ -99,12 +99,23 @@ void Duck::rJump(){
 
 void Duck::rDuckDraw(bool isConst){
     
+    static float rotspeed = 0;
+    float rot2=0;
+    Rectangle wing = {coor.x+shape.x-10.0f,coor.y+20.0f,10.0f,20.0f};
+    Vector2 org = {5.0f,0.0f};
+    float rot = 60.0f * rSpeed/(MaxRaceSpeed);//not maxracespeed
+    if(lastlook || isConst) rot2 = 2.0f*rFall / gravity;
+    else rot2 = -2.0f*rFall / gravity;
+    
+
+
     if(lastlook || isConst){
         DrawRectangleV(coor,shape,color);
         DrawRectangleGradientH(coor.x+shape.x/2,coor.y+10.0f,shape.x,10.0f,YELLOW,ORANGE);
         DrawCircle(coor.x+8.0f,coor.y+8.0f,4.0f,BLACK);
         DrawCircle(coor.x+8.0f,coor.y+8.0f,3.0f,WHITE);
         DrawCircle(coor.x+9.0f,coor.y+8.0f,1.0f,BLACK);
+
     }
     else {
         DrawRectangleV(coor,shape,color);
@@ -114,6 +125,11 @@ void Duck::rDuckDraw(bool isConst){
         DrawCircle(coor.x+shape.x-9.0f,coor.y+8.0f,1.0f,BLACK);
         
     }
+    
+    float target = Clamp(rot+rot2, -170.0f,170.0f);
+    rotspeed = Lerp(rotspeed,target,GetFrameTime()*8.0f);
+    
+    DrawRectanglePro(wing,org,rotspeed,{253,200,0,255});
 }
 
 void Duck::stringer(const std::vector<std::string>& texts){

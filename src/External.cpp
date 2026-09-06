@@ -4,7 +4,7 @@ void loadMyAudio(anySound& s){
     s.xsound = LoadSound("assets/audio/x1n.mp3");
     s.ysound = LoadSound("assets/audio/x2n.mp3");
     s.mainMenuM = LoadMusicStream("assets/audio/mainmenum.mp3");
-    s.raceM = LoadMusicStream("assets/audio/race.mp3");
+    s.raceM = LoadMusicStream("assets/audio/AEsong.mp3");
     s.runM = LoadMusicStream("assets/audio/runrelaxn.mp3");
 }
 

@@ -8,7 +8,7 @@ inline constexpr int wheight = 450;
 inline constexpr float bwidth = 80.0f;
 inline constexpr int bheight = 40.0f;
 
-inline constexpr float MaxRaceSpeed = 4.0f;//default 4
+inline constexpr float MaxRaceSpeed = 6.0f;//default 4
 inline constexpr float RaceAcc = 0.35f;
 inline constexpr float CameraSpeed = 0.08f;
 
